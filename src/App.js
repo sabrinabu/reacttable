@@ -1,7 +1,10 @@
 
+import { useState } from 'react';
 import './App.css';
+import data from './data.json';
 
 function App() {
+  const[contact, setContact]=useState(data);
   return (
     <div className="app-container">
    <table>
@@ -14,12 +17,17 @@ function App() {
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Sabrina Rahman</td>
-        <td>Berlin</td>
-        <td>02583</td>
-        <td>abc@gmail.com</td>
-      </tr>
+     
+      {contact.map((x)=>(
+        <tr>
+        <td>{x.fullName}</td>
+        <td>{x.address}</td>
+        <td>{x.phoneNumber}</td>
+        <td>{x.email}</td>
+        </tr>
+      ))}
+       
+    
     </tbody>
    </table>
     </div>
